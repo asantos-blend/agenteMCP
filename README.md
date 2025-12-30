@@ -39,26 +39,27 @@ BEDROCK_MODEL_ID=anthropic.claude-3-5-sonnet-20240620-v1:0
 Para levantar el agente sin preocuparse por las dependencias:
 
     Construir y levantar el contenedor:
-    Bash
+        docker-compose up --build
 
-docker-compose up --build
+    Actualizar el contenedor:
+        docker-compose up -d
 
-Interactuar con el agente: Si no ves el prompt de entrada, usa:
-Bash
 
+Interactuar con el agente: 
+    
     docker attach sales_mcp_agent
+
+Si no ves el prompt de entrada, click enter
 
 ## 💻 Ejecución Local
 
 Para ejecutar fuera de Docker:
 
-    Instalar dependencias:
-    Bash
-
-pip install -r requirements.txt
+Instalar dependencias:
+    
+    pip install -r requirements.txt
 
 Ejecutar la aplicación:
-Bash
 
     python main.py
 
