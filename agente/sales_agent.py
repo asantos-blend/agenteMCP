@@ -2,6 +2,7 @@ from agente.sql_agent import SQLAgent
 from connectors.mcp_sql_client import MCPSQLClient
 from langchain_aws import ChatBedrock
 from agente.intent_router import IntentRouter
+from config import get_llm
 import os
 from dotenv import load_dotenv
 
@@ -9,11 +10,7 @@ load_dotenv()
 
 class SalesAgent:
     def __init__(self):
-        model_id=os.getenv("BEDROCK_MODEL_ID")
-        region_name = os.getenv("AWS_REGION")
-        self.llm = ChatBedrock(model_id = model_id,
-                                region_name = region_name) 
-
+        self.llm = get_llm()
         self.sql_agent = SQLAgent(self.llm)
         self.mcp_client = MCPSQLClient("data/ventas.db")
         self.router = IntentRouter()
