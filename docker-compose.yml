@@ -1,0 +1,18 @@
+services:
+  agente-ventas:
+    build: .
+    container_name: sales_mcp_agent
+    volumes:
+      # Sincroniza tu carpeta actual con la del contenedor 
+      # para ver los .png y .csv generados afuera.
+      - .:/app
+    environment:
+      # Toma las variables de tu archivo .env local
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}
+      - AWS_REGION=${AWS_REGION}
+      - BEDROCK_MODEL_ID=${BEDROCK_MODEL_ID}
+    # Permite interactuar con la consola (input de usuario)
+    stdin_open: true
+    tty: true

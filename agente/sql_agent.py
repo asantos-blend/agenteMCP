@@ -93,8 +93,7 @@ class SQLAgent:
         # 3. Ejecutar el plan según el Router
         if plan["show_table"]:
             print("\n=== TABLA DE DATOS ===")
-            # Aquí puedes usar tabulate o pandas para que se vea lindo
-            import pandas as pd
+            
             df = pd.DataFrame(results)
             print(df.to_string(index=False))
 
@@ -108,7 +107,6 @@ class SQLAgent:
             print("Archivo 'reporte_ventas.csv' creado exitosamente.")
 
     def generar_grafico(self, df):
-        import matplotlib.pyplot as plt
         plt.figure(figsize=(10,5))
         
         # Intentar usar la primera columna como X y la última como Y (típico en agregaciones)
