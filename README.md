@@ -32,6 +32,8 @@ AWS_SECRET_ACCESS_KEY=tu_secret_key
 AWS_REGION=us-east-1
 BEDROCK_MODEL_ID=anthropic.claude-3-5-sonnet-20240620-v1:0
 
+``` 
+
 ## 🐳 Ejecución con Docker (Recomendado)
 
 Para levantar el agente sin preocuparse por las dependencias:
