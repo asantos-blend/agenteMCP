@@ -6,7 +6,7 @@ load_dotenv()
 
 def get_llm():
     return ChatBedrock(
-        model_id="anthropic.claude-3-haiku-20240307-v1:0",
+        model_id=os.getenv("BEDROCK_MODEL_ID"),
         region_name=os.getenv("AWS_REGION"),
         aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
         aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
